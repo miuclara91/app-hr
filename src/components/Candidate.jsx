@@ -1,30 +1,62 @@
 import { Link } from "react-router-dom";
-import { Button, Checkbox, FormGroup, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  Box,
+  Checkbox,
+  Container,
+  Grid,
+  FormGroup,
+  FormControlLabel,
+  Typography,
+} from "@mui/material";
 
 export default function Candidate({ name, date, skills }) {
   return (
-    <div>
-      <div>Nombre: {name}</div>
-      <div>F. Entrevista: {date}</div>
-      <div>
-        Habilidades:
-        <FormGroup>
+    <Container>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={6}>
+          <Typography>Nombre: {name}</Typography>
+        </Grid>
 
-          {/* <p>Java: {String(skills.java)}</p>
+        <Grid item xs={6}>
+          <Typography>F. Entrevista: {date}</Typography>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Box>
+            Habilidades:
+            <FormGroup>
+              {/* <p>Java: {String(skills.java)}</p>
             <p>Microservicios: {String(skills.micro)}</p>
             <p>Elastic: {String(skills.elastic)}</p> */}
 
-          <FormControlLabel control={<Checkbox  />} value={skills.java} label="Java" />
-          <FormControlLabel control={<Checkbox  />} value={skills.micro} label="Microservicios" />
-          <FormControlLabel control={<Checkbox  />} value={skills.elastic} label="Elastic" />
-        </FormGroup>
-      </div>
+              <FormControlLabel
+                control={<Checkbox />}
+                value={skills.java}
+                label="Java"
+              />
+              <FormControlLabel
+                control={<Checkbox />}
+                value={skills.micro}
+                label="Microservicios"
+              />
+              <FormControlLabel
+                control={<Checkbox />}
+                value={skills.elastic}
+                label="Elastic"
+              />
+            </FormGroup>
+          </Box>
+        </Grid>
 
-      <Button variant="contained">Guardar</Button>
+        <Grid item xs={6}>
+          <Button variant="contained" sx={{ mx: 2, bgcolor: "#e91e63"}}>Guardar</Button>
+          <Link to="/">
+            <Button variant="contained" sx={{ mx: 2, bgcolor: "#651fff"}}>Regresar</Button>
+          </Link>
+        </Grid>
 
-      <Link to="/">
-        <Button variant="contained">Regresar</Button>
-      </Link>
-    </div>
+      </Grid>
+    </Container>
   );
 }

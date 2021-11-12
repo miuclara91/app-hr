@@ -16,7 +16,7 @@ export default function ListOfCandidates({ name }) {
           
         }}
       >
-        <Grid container>
+        <Grid container >
           <Grid item xs={6}>
             <Typography align="center" > {name} </Typography>
           </Grid>
